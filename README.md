@@ -4,6 +4,14 @@ Generate C-code for wrapping simple Keras models, by the simple expedient of put
 
 Of course, there are much better ways to do this with external packages. But this is extremely easy to use for easy cases, and we should strive to "make the easy cases easy".
 
+
+## "Installation"
+
+Put keras_cmodel.py somewhere where you can import it, and mm_utils.c and mm_utils.h beside it.
+
+Tested on Ubuntu 18.04 with Python 3.6.9, Tensorflow 2.3.0, and gcc 7.5.0.
+
+
 ## Usage
 
 With a trained model:
@@ -51,10 +59,5 @@ which you compile with `gcc MLP_test.c MLP.c -lm -o MLP_test`.
 
 See `demo.py` for a fuller version of the demo described above.
 
-## "Installation"
-
-Put keras_cmodel.py somewhere where you can import it, and mm_utils.c and mm_utils.h beside it.
-
-Tested on Ubuntu 18.04 with Python 3.6.9, Tensorflow 2.3.0, and gcc 7.5.0.
 
 
