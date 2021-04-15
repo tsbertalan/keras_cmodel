@@ -2,7 +2,7 @@
 
 Generate C-code for wrapping simple Keras models, by the simple expedient of putting the weights directly into the c files.
 
-Of course, there are much better ways to do this with external packages. But this is extremely easy to use for easy cases, and we should strive to "make the easy cases easy".
+Of course, there are much better ways to do this with external packages (see: [ONNX](https://duckduckgo.com/?q=ONNX+keras)). But this is extremely easy to use for easy cases, and we should strive to "make the easy cases easy". Besides, it was fun to write.
 
 
 ## "Installation"
