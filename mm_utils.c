@@ -89,12 +89,12 @@ void print_array(char *name, const double *A, int rows, int cols)
     printf("];\n\n");
 }
 
-#define TEST_BATCH_SIZE 3
-#define TEST_INPUT_SIZE 2
-#define TEST_OUTPUT_SIZE 3
 
 int test()
 {
+    #define TEST_BATCH_SIZE 3
+    #define TEST_INPUT_SIZE 2
+    #define TEST_OUTPUT_SIZE 3
 
     const int x_shape[2] = {TEST_BATCH_SIZE, TEST_INPUT_SIZE};
     const double x[TEST_BATCH_SIZE * TEST_INPUT_SIZE] = {1, 2, 3, 4, 5, 6};

@@ -55,7 +55,7 @@ with open('MLP_test.c', 'w') as fp:
 # (well, that, you might)
 # and then receive results by importing a generated .py file.
 # Here, we do so just to get a standalone demo script.
-build_result = check_output('gcc MLP_test.c MLP.c mm_utils.c -lm -g -o MLP_test'.split())
+build_result = check_output('gcc MLP_test.c MLP.c -lm -g -o MLP_test'.split())
 result = check_output(['./MLP_test']).decode('utf-8')
 with open('MLP_result.py', 'w') as fp:
     fp.write(result)
