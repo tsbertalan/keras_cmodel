@@ -37,9 +37,7 @@ usage_batch_size = 5
 cmodel = CModel(model, usage_batch_size)
 cmodel.save(name='MLP')
 ```
-The `save` call here writes MLP.c and MLP.h.
-
-Note that the size of MLP.c will grow with network size, but MLP.h will stay small.
+The `save` call here writes MLP.c and MLP.h. (Note that the size of MLP.c will grow with network size, but MLP.h will stay small.)
 
 Then, you can have user code like e.g. `MLP_test.c`
 ```C
