@@ -36,7 +36,6 @@ inputs = ','.join([str(f) for f in x_test])
 # wrapper program like this around your MLP; e.g.
 # to adapt the interface to Auto.
 test_program = '''#include "MLP.h"
-#include "mm_utils.h"
 
 int main() {{
 setup();

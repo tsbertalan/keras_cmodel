@@ -128,7 +128,7 @@ def get_utils_code(header_guards=False):
             if ('#ifndef' not in line and '#endif' not in line)
         ])
     
-    return CCode(header, code)
+    return CCode(code, header)
 
 
 FORMAT_CODE_MLP_FUNC = '''
@@ -223,16 +223,19 @@ class CModel(CCode):
         }''' % setup_statements
 
         if add_utils_code:
-            global_code += '\n\n' + utils.code
-
+            global_code = utils.code + '\n\n' + global_code 
 
         global_definitions_header = (
             '\n'.join([c.header for c in arrays_to_write])
             + 'void setup();'
         )
 
+        if add_utils_code:
+            global_definitions_header = utils.header + '\n\n' + global_definitions_header
+
+
         self.code = FORMAT_CODE_MAIN.format(
-            utils_header='#include "mm_utils.h"' if not add_utils_code else utils.header,
+            utils_header='#include "mm_utils.h"' if not add_utils_code else '',
             globals=global_code, 
             func=main_function_code.code,
         )
