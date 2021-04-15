@@ -1,5 +1,7 @@
 Generate C-code for wrapping simple Keras models, by the simple expedient of putting the weights directly into the c files.
 
+Of course, there are much better ways to do this with external packages. But this is extremely easy to use for easy cases, and we should strive to "make the easy cases easy".
+
 With a trained model:
 ```python
 model = tf.keras.Sequential([
@@ -23,6 +25,8 @@ usage_batch_size = 5
 cmodel = CModel(model, usage_batch_size)
 cmodel.save(name='MLP')  # Writes MLP.c and MLP.h
 ```
+
+Note that the size of MLP.c will grow with network size, but MLP.h will stay small.
 
 Then, you can have user code like e.g.
 ```C
