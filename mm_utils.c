@@ -46,7 +46,7 @@ void bias_add(
     {
         for (int j = 0; j < cols; j++)
         {
-            O[i * rows + j] = xA[i * cols + j] + b[0 * cols + j];
+            O[i * cols + j] = xA[i * cols + j] + b[0 * cols + j];
         }
     }
 }
@@ -84,7 +84,7 @@ void print_array(char *name, const double *A, int rows, int cols)
         {
             printf("%f, ", A[i * cols + j]);
         }
-        printf("]\n");
+        printf("],\n");
     }
     printf("];\n\n");
 }
