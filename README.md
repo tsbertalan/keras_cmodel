@@ -14,8 +14,10 @@ Tested on Ubuntu 18.04 with Python 3.6.9, Tensorflow 2.3.0, and gcc 7.5.0.
 
 ## Usage
 
-With a trained model:
+With a trained `model`
 ```python
+import numpy as np, tensorflow as tf
+
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(10, activation='tanh'),
     tf.keras.layers.Dense(10, activation='tanh'),
