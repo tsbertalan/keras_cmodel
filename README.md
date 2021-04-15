@@ -28,7 +28,7 @@ cmodel.save(name='MLP')  # Writes MLP.c and MLP.h
 
 Note that the size of MLP.c will grow with network size, but MLP.h will stay small.
 
-Then, you can have user code like e.g.
+Then, you can have user code like e.g. `MLP_test.c`
 ```C
 #include "MLP.h"
 
@@ -40,6 +40,10 @@ int main() {
     print_array("outputs", outputs, 5, 1);
 }
 ```
+which you compile with `gcc MLP_test.c MLP.c -lm -o MLP_test`.
 
 (Doing this for a larger `np.linspace` batch of inputs and plotting:)
 <img src="mlp_result.png" width=500px />
+
+See `demo.py` for a fuller version of the demo described above.
+
