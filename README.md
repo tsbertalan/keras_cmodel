@@ -1,6 +1,10 @@
+# Keras C-Models
+
 Generate C-code for wrapping simple Keras models, by the simple expedient of putting the weights directly into the c files.
 
 Of course, there are much better ways to do this with external packages. But this is extremely easy to use for easy cases, and we should strive to "make the easy cases easy".
+
+## Usage
 
 With a trained model:
 ```python
@@ -46,4 +50,11 @@ which you compile with `gcc MLP_test.c MLP.c -lm -o MLP_test`.
 <img src="mlp_result.png" width=500px />
 
 See `demo.py` for a fuller version of the demo described above.
+
+## "Installation"
+
+Put keras_cmodel.py somewhere where you can import it, and mm_utils.c and mm_utils.h beside it.
+
+Tested on Ubuntu 18.04 with Python 3.6.9, Tensorflow 2.3.0, and gcc 7.5.0.
+
 
