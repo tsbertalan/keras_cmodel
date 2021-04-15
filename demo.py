@@ -63,6 +63,6 @@ outputs = np.array(outputs)
 
 fig, ax = plt.subplots()
 ax.plot(x_test, true_func(x_test), label='Truth')
-ax.scatter(x_test, outputs.ravel(), label='Net')
+ax.scatter(x_test, outputs.ravel(), label='Net (Called in C)')
 ax.legend()
 fig.savefig('mlp_result.png')
