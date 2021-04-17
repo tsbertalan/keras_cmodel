@@ -10,10 +10,13 @@ class CCode:
 
 
 class CArray(CCode):
-    def __init__(self, name, a, const=False, declared=True, define_at_declare=False):
+    def __init__(self, name, a, const=False, declared=True, define_at_declare=False, do_initialize=None):
         if not isinstance(a, np.ndarray):
             assert isinstance(a, tuple)
             a = np.zeros(a)
+            do_initialize = False if do_initialize is None else do_initialize
+        else:
+            do_initialize = True if do_initialize is None else do_initialize
         self.shape = tuple([int(s) for s in a.shape])
         assert len(a.shape) == 2, 'We assume 2D arrays.'
 
@@ -65,14 +68,17 @@ class CArray(CCode):
             )
             data = ''
         else:
-            data = '\n'.join([
-                '{name}[{i}] = {v};'.format(
-                    name=name,
-                    i=i,
-                    v='%.60g' % v
-                )
-                for i, v in enumerate(a.ravel())
-            ])
+            if not do_initialize:
+                data = ''
+            else:
+                data = '\n'.join([
+                    '{name}[{i}] = {v};'.format(
+                        name=name,
+                        i=i,
+                        v='%.60g' % v
+                    )
+                    for i, v in enumerate(a.ravel())
+                ])
 
         self.code = shape + ';\n' + data + ';\n'
         self.actual_header = shape_declaration + ';\n' + data_declaration + ';\n'
